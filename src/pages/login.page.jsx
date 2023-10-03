@@ -7,7 +7,7 @@ import { userLogin } from "../app/features/auth/actions.auth";
 const LoginPage = () => {
   // state
   const [value, setValue] = useState({
-    email: "",
+    username: "",
     password: "",
   });
   const [errorLog, setErrorLog] = useState({});
@@ -32,7 +32,7 @@ const LoginPage = () => {
         dispatch(userLogin(response.data));
         setErrorLog({});
         setValue({
-          email: "",
+          username: "",
           password: "",
         });
         setLoading(false);
@@ -70,16 +70,16 @@ const LoginPage = () => {
                   </div>
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="email" className="form-label">
-                    Email
+                  <label htmlFor="username" className="form-label">
+                    Username
                   </label>
                   <input
-                    type="email"
+                    type="text"
                     className="form-control"
-                    id="email"
-                    name="email"
+                    id="username"
+                    name="username"
                     onChange={handleChange}
-                    value={value.email}
+                    value={value.username}
                   />
                 </div>
                 <div className="mb-3">

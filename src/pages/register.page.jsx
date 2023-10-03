@@ -6,7 +6,7 @@ const RegisterPage = () => {
   // state
   const [value, setValue] = useState({
     fullname: "",
-    email: "",
+    username: "",
     password: "",
   });
   const [errorLog, setErrorLog] = useState({});
@@ -30,7 +30,7 @@ const RegisterPage = () => {
         setErrorLog({});
         setValue({
           fullname: "",
-          email: "",
+          username: "",
           password: "",
         });
         setLoading(false);
@@ -38,7 +38,7 @@ const RegisterPage = () => {
       })
       .catch((error) => {
         setLoading(false);
-        const { fullname, email, password } = error.response.data.fields;
+        const { fullname, username, password } = error.response.data.fields;
         if (fullname) {
           setErrorLog((preError) => ({
             ...preError,
@@ -50,12 +50,12 @@ const RegisterPage = () => {
             fullname: "",
           }));
         }
-        if (email) {
-          setErrorLog((preError) => ({ ...preError, email: email.message }));
+        if (username) {
+          setErrorLog((preError) => ({ ...preError, username: username.message }));
         } else {
           setErrorLog((preError) => ({
             ...preError,
-            email: "",
+            username: "",
           }));
         }
         if (password) {
@@ -96,19 +96,19 @@ const RegisterPage = () => {
                   </div>
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="email" className="form-label">
-                    Email
+                  <label htmlFor="username" className="form-label">
+                    username
                   </label>
                   <input
-                    type="email"
+                    type="text"
                     className="form-control"
-                    id="email"
-                    name="email"
+                    id="username"
+                    name="username"
                     onChange={handleChange}
-                    value={value.email}
+                    value={value.username}
                   />
                   <div className="mt-1 text-danger fst-italic">
-                    {errorLog.email}
+                    {errorLog.username}
                   </div>
                 </div>
                 <div className="mb-3">

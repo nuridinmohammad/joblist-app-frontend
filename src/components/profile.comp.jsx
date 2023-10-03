@@ -11,12 +11,8 @@ const ProfileComp = () => {
             <td>{auth?.user?.fullname}</td>
           </tr>
           <tr>
-            <th>Email</th>
-            <td>{auth?.user?.email}</td>
-          </tr>
-          <tr>
-            <th>Role</th>
-            <td>{auth?.user?.role}</td>
+            <th>Username</th>
+            <td>{auth?.user?.username}</td>
           </tr>
         </tbody>
       </table>
